@@ -1,0 +1,13 @@
+name: PIT
+author: AspyTheAussie
+main: net.blockcade.pit.Main
+api-version: 1.13
+version: Blockcade-ALPHA-01
+depend:
+  - Arcade
+load: POSTWORLD
+commands:
+  game:
+    description: Game Managment command
+  spawn:
+    description: Return to spawn
