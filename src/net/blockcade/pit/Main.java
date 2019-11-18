@@ -10,7 +10,6 @@ import net.blockcade.Arcade.Varables.GameType;
 import net.blockcade.pit.Commands.spawn;
 import net.blockcade.pit.Events.Player;
 import net.blockcade.pit.InventoryMenus.Shop;
-import net.citizensnpcs.api.CitizensAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
 import org.bukkit.Location;
@@ -31,7 +30,6 @@ public class Main extends JavaPlugin {
         /*
          * Init Game
          */
-        CitizensAPI.getNPCRegistry().deregisterAll();
         Game game = new Game("Arena", GameType.CUSTOM,1,100,this, Bukkit.getWorlds().get(0));
         game.GameState(GameState.DISABLED);
         game.AutoStart(false);
