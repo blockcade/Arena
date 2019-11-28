@@ -2,9 +2,11 @@ package net.blockcade.pit;
 
 import net.blockcade.Arcade.Commands.GameCommand;
 import net.blockcade.Arcade.Game;
+import net.blockcade.Arcade.Managers.GamePlayer;
 import net.blockcade.Arcade.Utils.GameUtils.NPC;
 import net.blockcade.Arcade.Utils.JavaUtils;
 import net.blockcade.Arcade.Varables.GameModule;
+import net.blockcade.Arcade.Varables.GameName;
 import net.blockcade.Arcade.Varables.GameState;
 import net.blockcade.Arcade.Varables.GameType;
 import net.blockcade.pit.Commands.spawn;
@@ -33,6 +35,7 @@ public class Main extends JavaPlugin {
         Game game = new Game("Arena", GameType.CUSTOM,1,100,this, Bukkit.getWorlds().get(0));
         game.GameState(GameState.DISABLED);
         game.AutoStart(false);
+        game.setGameName(GameName.ARENA);
         game.setMaxDamageHeight(130);
         game.setModule(GameModule.DEATH_MANAGER,false);
         game.setModule(GameModule.BLOCK_PLACEMENT,true);
@@ -49,6 +52,7 @@ public class Main extends JavaPlugin {
         game.map().setWeatherDuration(0);
         game.map().setTime(6316);
         game.map().setFullTime(1700464);
+        getServer().getPluginManager().registerEvents(new GamePlayer(game,false), game.handler());
 
         new Shop(game);
 
